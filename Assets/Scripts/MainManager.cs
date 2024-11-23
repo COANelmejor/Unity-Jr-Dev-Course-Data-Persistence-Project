@@ -54,8 +54,7 @@ public class MainManager : MonoBehaviour
 
     public void SetBrickLines(int level) {
         // Reset Ball behavior
-        Ball.transform.SetParent(Paddle.transform);
-        Ball.transform.localPosition = new Vector3(0, 0.75f, 0);
+        Ball.transform.position = Paddle.transform.position + new Vector3(0, 0.15f, 0);
 
         const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);
@@ -64,9 +63,9 @@ public class MainManager : MonoBehaviour
             1 + level, 
             2 + level, 
             3 + level, 
-            4 + level, 
             5 + level, 
-            6 + level 
+            7 + level, 
+            9 + level 
         };
         for (int i = 0; i < LineCount; ++i) {
             for (int x = 0; x < perLine; ++x) {

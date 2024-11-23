@@ -16,11 +16,11 @@ public class Brick : MonoBehaviour {
         var renderer = GetComponentInChildren<Renderer>();
 
         MaterialPropertyBlock block = new MaterialPropertyBlock();
-        if (PointValue < 6) {
+        if (PointValue < 3) {
             block.SetColor("_BaseColor", Color.green);
-        } else if (PointValue >= 6 && PointValue <= 10) {
+        } else if (PointValue >= 3 && PointValue <= 5) {
             block.SetColor("_BaseColor", Color.yellow);
-        } else if (PointValue >= 11 && PointValue <= 15) {
+        } else if (PointValue >= 6 && PointValue <= 9) {
             block.SetColor("_BaseColor", Color.blue);
         } else {
             block.SetColor("_BaseColor", Color.red);
