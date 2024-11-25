@@ -27,7 +27,7 @@ public class MainManager : MonoBehaviour
     void Start()
     {
         SetBrickLines(currentLevel);
-        SetHighScoreText(DataManager.Instance.highScore, DataManager.Instance.playerName);
+        SetHighScoreText(DataManager.Instance.highScore, DataManager.Instance.highScorePlayerName);
     }
 
     private void Update()

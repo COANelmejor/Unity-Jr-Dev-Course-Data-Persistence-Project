@@ -6,6 +6,7 @@ using UnityEngine;
 public class DataManager : MonoBehaviour {
     public static DataManager Instance;
     public int highScore;
+    public string highScorePlayerName;
     public string playerName;
     // Start is called before the first frame update
 
@@ -31,6 +32,7 @@ public class DataManager : MonoBehaviour {
         if (score > highScore) {
             highScore = score;
             this.playerName = playerName;
+            this.highScorePlayerName = playerName;
             SaveHighScore(score);
         }
     }
@@ -58,6 +60,7 @@ public class DataManager : MonoBehaviour {
             SaveData data = JsonUtility.FromJson<SaveData>(jsonContent);
             highScore = data.highScore;
             playerName = data.playerName;
+            highScorePlayerName = playerName;
         } else {
             highScore = 0;
             playerName = "Player";
