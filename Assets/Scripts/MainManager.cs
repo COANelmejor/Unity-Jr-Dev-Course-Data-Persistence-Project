@@ -12,6 +12,7 @@ public class MainManager : MonoBehaviour
     public GameObject Paddle;
 
     public Text ScoreText;
+    public Text HighScoreText;
     public GameObject GameOverText;
     
     private bool m_Started = false;
@@ -26,6 +27,7 @@ public class MainManager : MonoBehaviour
     void Start()
     {
         SetBrickLines(currentLevel);
+        SetHighScoreText(DataManager.Instance.highScore, DataManager.Instance.playerName);
     }
 
     private void Update()
@@ -87,6 +89,10 @@ public class MainManager : MonoBehaviour
     {
         m_Points += point;
         ScoreText.text = $"Score : {m_Points}";
+        if (m_Points > DataManager.Instance.highScore) {
+            DataManager.Instance.SetHighScoreValues(m_Points, DataManager.Instance.playerName);
+            SetHighScoreText(m_Points, DataManager.Instance.playerName);
+        }
         brickLeft--;
         if (brickLeft == 0) {
             SetBrickLines(currentLevel);
@@ -98,5 +104,9 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+    }
+
+    public void SetHighScoreText(int highScore, string playerName) {
+        HighScoreText.text = $"High Score : {playerName} : {highScore}";
     }
 }

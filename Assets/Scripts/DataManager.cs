@@ -41,9 +41,10 @@ public class DataManager : MonoBehaviour {
     }
 
     public void SaveHighScore(int score) {
-        SaveData data = new SaveData();
-        data.highScore = highScore;
-        data.playerName = playerName;
+        SaveData data = new() {
+            highScore = highScore,
+            playerName = playerName
+        };
 
         string json = JsonUtility.ToJson(data);
 
